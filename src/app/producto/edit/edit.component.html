@@ -1,0 +1,112 @@
+<div class="container-xxl">
+  <div class="container">
+      <h1>Edit</h1>
+
+      <a href="/producto/index" routerLink="/producto/index" class="btn btn-primary">Back</a>
+
+      <form [formGroup]="form" (ngSubmit)="updateProducto()">
+
+          <div class="form-group">
+              <label for="nombre">Titulo:</label>
+              <input
+                  formControlName="nombre"
+                  id="nombre"
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="newProducto.nombre">
+              <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="alert alert-danger">
+              <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">Nombre Requerido.</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="categoria">Categoria</label>
+              <textarea
+                  formControlName="categoria"
+                  id="categoria"
+                  type="text"
+                  class=" form-control"
+                  [(ngModel)]="newProducto.categoria">
+              </textarea>
+              <div *ngIf="f['categoria'].touched && f['categoria'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['categoria'].errors && f['categoria'].errors['required']">Categoria is required.</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="talla">Talla</label>
+              <textarea
+                  formControlName="talla"
+                  id="talla"
+                  type="text"
+                  class=" form-control"
+                  [(ngModel)]="newProducto.talla">
+              </textarea>
+              <div *ngIf="f['talla'].touched && f['talla'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['talla'].errors && f['talla'].errors['required']">Categoria is required.</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="estado">Estado</label>
+              <textarea
+                  formControlName="estado"
+                  id="estado"
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="newProducto.estado">
+              </textarea>
+              <div *ngIf="f['estado'].touched && f['estado'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['estado'].errors && f['estado'].errors['required']">Estado is required.</div>
+              </div>
+          </div>
+
+
+          <div>
+              <label for="marca">Marca</label>
+              <textarea
+                  formControlName="marca"
+                  id="marca"
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="newProducto.marca">
+              </textarea>
+              <div *ngIf="f['marca'].touched && f['marca'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['marca'].errors && f['marca'].errors['required']">Marca is required.</div>
+              </div>
+          </div>
+
+          <div>
+              <label for="detalles">Detalles</label>
+              <textarea
+                  formControlName="detalles"
+                  id="detalles"
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="newProducto.detalles">
+              </textarea>
+              <div *ngIf="f['detalles'].touched && f['detalles'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['detalles'].errors && f['detalles'].errors['required']">Detalles is required.</div>
+              </div>
+          </div>
+          <div hidden>
+            <label for="user_id">user</label>
+            <textarea
+            formControlName="user_id"
+            id="user_id"
+            type="text"
+            [defaultValue]="2"
+            class="form-control"
+            [(ngModel)]="newProducto.user_id">
+          </textarea>
+            <div *ngIf="f['user_id'].touched && f['user_id'].invalid" class="alert alert-danger">
+              <div *ngIf="f['user_id'].errors && f['user_id'].errors['required']">User</div>
+          </div>
+          </div>
+
+          <button class="btn btn-primary" type="submit" (click)="updateProducto()">
+            Update
+          </button>
+      </form><!--[disabled]="!form.valid"-->
+    </div>
+  </div>
